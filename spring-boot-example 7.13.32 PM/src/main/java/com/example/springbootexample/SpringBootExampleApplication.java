@@ -66,7 +66,7 @@ public class SpringBootExampleApplication {
         //To see all the beans managed by application context
         ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringBootExampleApplication.class, args);
 
-        printBeans(applicationContext);
+//        printBeans(applicationContext);
     }
 
     private static void printBeans(ConfigurableApplicationContext applicationContext) {

@@ -1,6 +1,8 @@
 package com.example.springbootexample.customer;
 
+import com.example.springbootexample.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +21,6 @@ public class CustomerService {
     }
 
     public Customer getCustomer(Integer id) {
-        return customerDao.selectCustomerById(id).orElseThrow(() -> new IllegalArgumentException("customer with id [%s] not found".formatted(id)));
+        return customerDao.selectCustomerById(id).orElseThrow(() -> new ResourceNotFoundException("customer with id [%s] not found".formatted(id)));
     }
 }
