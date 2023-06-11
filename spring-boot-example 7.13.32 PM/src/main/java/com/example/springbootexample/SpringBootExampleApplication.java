@@ -3,6 +3,7 @@ package com.example.springbootexample;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -75,6 +76,14 @@ public class SpringBootExampleApplication {
             System.out.println(beanDefinitionName);
         }
     }
+
+    //By adding @Bean, it'll be managed by Spring and the dependency will be injected wherever we need.
+    @Bean("foo")
+    Foo getFoo() {
+        return new Foo("bar");
+    }
+
+    public record Foo(String name) {}
 
 
 }
